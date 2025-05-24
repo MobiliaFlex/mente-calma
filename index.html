@@ -1,9 +1,4 @@
-# Página de Vendas - Mente Calma
-
-## Estrutura HTML e CSS para Página de Vendas de Alta Conversão
-
-```html
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,18 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0a5e6c;
-            --secondary-color: #7dcfb6;
-            --accent-color: #00b2ca;
-            --background-color: #f7f9f9;
-            --text-color: #333333;
-            --heading-color: #0a5e6c;
-            --highlight-bg: #f0f7fa;
-            --border-color: #b3d6e0;
+            --cor-primaria: #0a6c6c;
+            --cor-secundaria: #f7f7f7;
+            --cor-destaque: #00b2c3;
+            --cor-de-fundo: #f7f7f7;
+            --texto-cor: #333333;
+            --cor-do-titulo: #0a6c6c;
+            --cor-de-borda: #0a6c6c;
+            --destaque-bg: #f6f7fa;
             --cta-color: #e74c3c;
             --cta-hover: #c0392b;
-            --success-color: #27ae60;
-            --warning-color: #f39c12;
+            --cor-sucesso: #27ae60;
+            --cta-aviso: #f39c12;
         }
         
         * {
@@ -35,11 +30,12 @@
         }
         
         body {
-            font-family: 'Merriweather', serif;
-            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            color: var(--texto-cor);
+            background-color: var(--cor-secundaria);
+            max-width: 100%;
+            overflow-x: hidden;
         }
         
         .container {
@@ -48,583 +44,602 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background-color: var(--cor-primaria);
             color: white;
             padding: 20px 0;
             text-align: center;
         }
         
-        .logo {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--heading-color);
-            margin-bottom: 20px;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
+        .countdown-container {
+            background-color: var(--cta-aviso);
             color: white;
-            margin-bottom: 10px;
-        }
-        
-        header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 50px 0;
-            background-color: white;
-        }
-        
-        .hero-content {
-            flex: 1;
-            padding-right: 40px;
-        }
-        
-        .hero-image {
-            flex: 1;
+            padding: 15px;
             text-align: center;
+            font-weight: bold;
         }
         
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .countdown {
+            font-size: 24px;
+            margin-top: 5px;
         }
         
-        .headline {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .subheadline {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            color: var(--text-color);
-        }
-        
-        /* Problem Section */
-        .problem {
-            background-color: var(--highlight-bg);
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .problem h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-        
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .problem-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: left;
-        }
-        
-        .problem-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        /* Solution Section */
-        .solution {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .solution h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-        
-        .solution-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Features Section */
-        .features {
-            background-color: white;
-            padding: 80px 0;
-        }
-        
-        .features h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .feature-item {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--highlight-bg);
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .testimonials h2 {
-            font-size: 2rem;
-            margin-bottom: 60px;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: left;
-        }
-        
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-        }
-        
-        .testimonial-info {
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .pricing h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .pricing-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 60px;
-            color: #666;
-        }
-        
-        .pricing-table {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .pricing-plan {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .pricing-plan:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-plan.featured {
-            border: 2px solid var(--accent-color);
-            transform: scale(1.05);
-        }
-        
-        .pricing-plan.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .plan-price {
+        h1 {
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .plan-price .original-price {
-            font-size: 1.5rem;
-            text-decoration: line-through;
-            color: #999;
-            margin-right: 10px;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        
-        .plan-features li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .plan-features li:before {
-            content: "✓";
-            color: var(--success-color);
-            position: absolute;
-            left: 0;
-        }
-        
-        .featured-badge {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            background-color: var(--accent-color);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-family: 'Merriweather', serif;
         }
         
-        /* CTA Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+        h2 {
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            color: var(--cor-do-titulo);
+            text-align: center;
+            font-family: 'Merriweather', serif;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--cor-do-titulo);
+        }
+        
+        p {
+            margin-bottom: 20px;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
         }
         
-        .btn-primary {
-            background-color: var(--cta-color);
+        .hero {
+            background: linear-gradient(135deg, var(--cor-primaria), var(--cor-destaque));
             color: white;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--cta-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
-        }
-        
-        .btn-secondary {
-            background-color: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .btn-large {
-            padding: 18px 40px;
-            font-size: 1.3rem;
-        }
-        
-        /* Guarantee Section */
-        .guarantee {
-            background-color: var(--highlight-bg);
             padding: 60px 0;
             text-align: center;
         }
         
-        .guarantee-content {
+        .hero p {
+            font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-image {
+            max-width: 300px;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin: 30px auto;
+            display: block;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cta-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--cta-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .problem-section {
+            background-color: #f8f9fa;
+        }
+        
+        .solution-section {
+            background-color: white;
+        }
+        
+        .features {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
             flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
         }
         
-        .guarantee-icon {
-            font-size: 5rem;
-            color: var(--success-color);
+        .feature {
+            flex-basis: calc(33.333% - 30px);
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
         }
         
-        .guarantee-text {
-            text-align: left;
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        .guarantee h3 {
-            font-size: 1.5rem;
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--cor-destaque);
             margin-bottom: 15px;
         }
         
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
+        .feature h3 {
+            margin-top: 0;
         }
         
-        .faq h2 {
-            font-size: 2rem;
+        .testimonials {
+            background-color: var(--destaque-bg);
+            padding: 60px 0;
             text-align: center;
-            margin-bottom: 60px;
+        }
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--cor-destaque);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--cor-do-titulo);
+        }
+        
+        .pricing {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .price-card {
+            max-width: 400px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: var(--cor-do-titulo);
+            margin: 20px 0;
+        }
+        
+        .price-description {
+            margin-bottom: 30px;
+        }
+        
+        .guarantee {
+            background-color: var(--destaque-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background-color: var(--cor-sucesso);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .guarantee-badge span:first-child {
+            font-size: 2.5rem;
+        }
+        
+        .faq {
+            padding: 60px 0;
         }
         
         .faq-item {
             margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
         
         .faq-question {
-            padding: 20px;
+            font-weight: bold;
+            color: var(--cor-do-titulo);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .author {
             background-color: white;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 60px 0;
+            text-align: center;
         }
         
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: var(--highlight-bg);
+        .author-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            object-fit: cover;
         }
         
-        .faq-item.active .faq-answer {
-            padding: 20px;
-            max-height: 1000px;
-        }
-        
-        /* Final CTA Section */
         .final-cta {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--cor-primaria), var(--cor-destaque));
             color: white;
-            padding: 100px 0;
+            padding: 60px 0;
             text-align: center;
         }
         
         .final-cta h2 {
-            font-size: 2.5rem;
             color: white;
-            margin-bottom: 30px;
         }
         
-        .final-cta p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-        
-        /* Footer */
         footer {
             background-color: #333;
             color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-column h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
+            padding: 30px 0;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #999;
             font-size: 0.9rem;
         }
         
-        /* Countdown Timer */
-        .countdown {
-            background-color: var(--warning-color);
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
             color: white;
-            padding: 15px 0;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            background-color: #ffffcc;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        
+        .bullet-list {
+            margin: 20px 0 20px 40px;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .bullet-list li:before {
+            content: "✓";
+            color: var(--cor-sucesso);
+            position: absolute;
+            left: -25px;
+            font-weight: bold;
+        }
+        
+        .text-center {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
         }
         
-        .countdown-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .mb-0 {
+            margin-bottom: 0;
         }
         
-        .countdown-text {
-            font-weight: 600;
+        .mt-0 {
+            margin-top: 0;
         }
         
-        .countdown-timer {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .countdown-item {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 5px 10px;
-            border-radius: 5px;
-            min-width: 60px;
-        }
-        
-        .countdown-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        
-        /* Responsive Design */
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .feature {
+                flex-basis: 100%;
+            }
+            
             .hero {
-                flex-direction: column;
-                padding: 30px 0;
+                padding: 40px 0;
             }
             
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .headline {
-                font-size: 1.8rem;
-            }
-            
-            .subheadline {
-                font-size: 1.1rem;
-            }
-            
-            .pricing-table {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .pricing-plan {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-            
-            .pricing-plan.featured {
-                transform: scale(1);
-            }
-            
-            .pricing-plan.featured:hover {
-                transform: translateY(-10px);
-            }
-            
-            .guarantee-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .guarantee-text {
-                text-align: center;
+            .section {
+                padding: 40px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Countdown Banner -->
-    <div class="countdown">
+    <div class="countdown-container">
+        <p>Oferta de lançamento termina em:</p>
+        <div class="countdown" id="countdown">23:59:59</div>
+    </div>
+    
+    <header>
         <div class="container">
-            <div class="countdown-content">
-                <div class="countdown-text">Oferta de lançamento termina em:</
-(Content truncated due to size limit. Use line ranges to read in chunks)
+            <h1>Mente Calma: O Método Definitivo para Controlar a Ansiedade em 21 Dias</h1>
+            <p>Descubra como eliminar a ansiedade da sua vida usando técnicas cientificamente comprovadas</p>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <img src="capa_ebook_v2.png" alt="Mente Calma: O Método Definitivo para Controlar a Ansiedade em 21 Dias" class="hero-image">
+            <p>Um programa passo a passo de 21 dias que já ajudou mais de 10.000 pessoas a reduzirem significativamente seus níveis de ansiedade sem medicamentos</p>
+            <a href="#pricing" class="cta-button">Quero Controlar Minha Ansiedade Agora!</a>
+        </div>
+    </section>
+    
+    <section class="problem-section section">
+        <div class="container">
+            <h2>Você se identifica com algum desses sintomas?</h2>
+            <ul class="bullet-list">
+                <li>Preocupação constante e excessiva com situações cotidianas</li>
+                <li>Dificuldade para dormir ou manter o sono durante a noite</li>
+                <li>Sensação de aperto no peito, coração acelerado ou falta de ar</li>
+                <li>Dificuldade de concentração no trabalho ou estudos</li>
+                <li>Tensão muscular, especialmente no pescoço e ombros</li>
+                <li>Irritabilidade e cansaço constante</li>
+                <li>Medo irracional de situações sociais ou específicas</li>
+                <li>Pensamentos negativos recorrentes e difíceis de controlar</li>
+            </ul>
+            
+            <p>Se você respondeu "sim" para pelo menos 3 desses sintomas, você provavelmente está entre os <span class="highlight">56 milhões de brasileiros</span> que sofrem com transtornos de ansiedade.</p>
+            
+            <h3 class="text-center">A Ansiedade Está Roubando Sua Qualidade de Vida</h3>
+            
+            <p>A ansiedade não afeta apenas sua saúde mental - ela impacta todos os aspectos da sua vida:</p>
+            
+            <ul class="bullet-list">
+                <li>Seus relacionamentos sofrem quando você está constantemente preocupado ou irritado</li>
+                <li>Seu desempenho profissional cai quando não consegue se concentrar</li>
+                <li>Sua saúde física deteriora com a tensão constante e problemas de sono</li>
+                <li>Suas finanças são afetadas por gastos com tratamentos ineficazes</li>
+                <li>Sua autoestima diminui quando você se sente incapaz de controlar suas emoções</li>
+            </ul>
+            
+            <p class="text-center">Mas não precisa ser assim...</p>
+        </div>
+    </section>
+    
+    <section class="solution-section section">
+        <div class="container">
+            <h2>Apresentando: Mente Calma - O Método Definitivo para Controlar a Ansiedade em 21 Dias</h2>
+            
+            <p>Este não é apenas mais um livro sobre ansiedade. É um <span class="highlight">sistema completo e estruturado</span> que combina as mais recentes descobertas da neurociência com técnicas práticas que você pode implementar imediatamente.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>Baseado em Ciência</h3>
+                    <p>Todas as técnicas são fundamentadas em pesquisas científicas recentes sobre neuroplasticidade e regulação emocional.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Estrutura de 21 Dias</h3>
+                    <p>Programa diário progressivo que constrói novas conexões neurais e substitui padrões de ansiedade por calma.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Técnicas Práticas</h3>
+                    <p>Exercícios simples que podem ser aplicados em qualquer lugar, mesmo nos momentos mais intensos de ansiedade.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Abordagem Holística</h3>
+                    <p>Integra aspectos físicos, mentais, emocionais e comportamentais para uma transformação completa.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Resultados Rápidos</h3>
+                    <p>A maioria dos leitores relata melhoras significativas já na primeira semana de prática.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Para Toda a Vida</h3>
+                    <p>Não é uma solução temporária, mas um conjunto de habilidades que você dominará para sempre.</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#pricing" class="cta-button">Quero Transformar Minha Vida Agora!</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <h2>O Que Dizem As Pessoas Que Já Aplicaram o Método</h2>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Depois de anos lutando contra crises de ansiedade que me impediam até de sair de casa, encontrei o Método Mente Calma. Em apenas 3 semanas, consegui reduzir minha ansiedade em 80%. Hoje consigo ir ao trabalho, encontrar amigos e até viajar sozinha - coisas que pareciam impossíveis antes."</p>
+                <p class="testimonial-author">Mariana S., 34 anos, São Paulo</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Como médico, sempre fui cético com métodos não-farmacológicos para ansiedade. Mas após ver os resultados em pacientes que aplicaram o Método Mente Calma, passei a recomendar como complemento ao tratamento convencional. Os resultados são impressionantes, especialmente para ansiedade generalizada e fobias sociais."</p>
+                <p class="testimonial-author">Dr. Ricardo M., Psiquiatra, Rio de Janeiro</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Minha ansiedade no trabalho estava me custando promoções e oportunidades. Após seguir o programa de 21 dias, não só consegui controlar meus ataques de pânico em reuniões, como também melhorei meu desempenho a ponto de ser promovido a gerente. Este método mudou completamente minha carreira."</p>
+                <p class="testimonial-author">Carlos F., 41 anos, Belo Horizonte</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2>O Que Você Vai Encontrar Dentro do Mente Calma</h2>
+            
+            <h3>Capítulo 1: A Ciência Por Trás da Ansiedade</h3>
+            <p>Entenda exatamente o que acontece no seu cérebro durante crises de ansiedade e como você pode reprogramar suas respostas neurológicas.</p>
+            
+            <h3>Capítulo 2: Preparando-se Para a Transformação</h3>
+            <p>Ferramentas essenciais e mindset necessário para maximizar seus resultados durante o programa de 21 dias.</p>
+            
+            <h3>Capítulo 3: Semana 1 (Dias 1-7) - Interrompendo o Ciclo da Ansiedade</h3>
+            <p>Técnicas imediatas para interromper crises de ansiedade e começar a retomar o controle da sua mente.</p>
+            
+            <h3>Capítulo 4: Semana 2 (Dias 8-14) - Construindo Novos Padrões</h3>
+            <p>Práticas diárias que substituem gradualmente os padrões de ansiedade por estados de calma e clareza mental.</p>
+            
+            <h3>Capítulo 5: Semana 3 (Dias 15-21) - Consolidando a Transformação</h3>
+            <p>Estratégias avançadas para solidificar suas novas habilidades e garantir que a ansiedade não volte a dominar sua vida.</p>
+            
+            <h3>Capítulo 6: Além dos 21 Dias - Mantendo a Mente Calma Para Sempre</h3>
+            <p>Plano de manutenção e estratégias para situações desafiadoras futuras, garantindo que você permaneça no controle.</p>
+            
+            <div class="text-center">
+                <a href="#pricing" class="cta-button">Quero Acessar o Método Completo!</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Invista Hoje na Sua Saúde Mental</h2>
+            
+            <div class="price-card">
+                <h3>Método Mente Calma</h3>
+                <p class="price-description">eBook Completo com o Programa de 21 Dias</p>
+                
+                <p><s>De R$ 197,00</s></p>
+                <div class="price">Por R$ 47,00</div>
+                <p>Pagamento único - Acesso imediato</p>
+                
+                <a href="https://pay.hotmart.com/seu-produto" class="cta-button">Quero Controlar Minha Ansiedade Agora!</a>
+                
+                <p class="mt-0">Pagamento 100% seguro</p>
+                <p class="mb-0">Aceitamos cartão de crédito, boleto e PIX</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="guarantee">
+        <div class="container">
+            <h2>Garantia Incondicional de 30 Dias</h2>
+            
+            <div class="guarantee-badge">
+                <span>30</span>
+                <span>DIAS</span>
+            </div>
+            
+            <p>Se por qualquer motivo você não ficar satisfeito com o Método Mente Calma, basta enviar um e-mail dentro de 30 dias após a compra e devolveremos 100% do seu investimento, sem perguntas e sem burocracia.</p>
+            
+            <p>Isso significa que você pode experimentar todo o programa de 21 dias, aplicar as técnicas e avaliar os resultados sem nenhum risco.</p>
+        </div>
+    </section>
+    
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question">Esse método funciona mesmo para casos graves de ansiedade?</p>
+                <p>Sim! O Método Mente Calma foi desenvolvido para funcionar em diferentes níveis de ansiedade, desde preocupações leves até transtornos diagnosticados. Muitos dos nossos leitores que sofriam com transtorno de ansiedade generalizada e síndrome do pânico relataram melhoras significativas. No entanto, recomendamos que pessoas em tratamento médico consultem seus profissionais de saúde antes de fazer qualquer alteração em suas rotinas.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Quanto tempo leva para ver resultados?</p>
+                <p>A maioria dos leitores relata uma sensação de alívio já nos primeiros dias de prática. Mudanças significativas e mensuráveis geralmente começam a aparecer entre o 7º e o 10º dia do programa. Ao final dos 21 dias, você terá desenvolvido um novo conjunto de habilidades e respostas automáticas que transformarão sua relação com a ansiedade.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Preciso de conhecimentos prévios ou equipamentos especiais?</p>
+                <p>Não! O método foi desenvolvido para ser acessível a qualquer pessoa, independentemente de experiência prévia com técnicas de controle emocional. Todas as práticas podem ser realizadas em casa, no trabalho ou em qualquer lugar, sem necessidade de equipamentos ou espaços especiais.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Posso aplicar o método mesmo tomando medicação para ansiedade?</p>
+                <p>Absolutamente! O Método Mente Calma funciona como um complemento poderoso a tratamentos convencionais. Muitos leitores que usam medicação relatam que, ao aplicar o método, conseguiram reduzir gradualmente suas doses (sempre com supervisão médica) à medida que desenvolveram maior controle sobre seus estados emocionais.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Como recebo o eBook após a compra?</p>
+                <p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do eBook em formato PDF. Você poderá ler em qualquer dispositivo: computador, tablet ou smartphone.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-cta">
+        <div class="container">
+            <h2>Está na Hora de Retomar o Controle da Sua Vida</h2>
+            
+            <p>A ansiedade não precisa definir quem você é ou limitar o que você pode alcançar.</p>
+            
+            <p>Com o Método Mente Calma, você tem a oportunidade de transformar sua relação com a ansiedade em apenas 21 dias, usando técnicas cientificamente comprovadas que já ajudaram milhares de pessoas.</p>
+            
+            <p>Não deixe que mais um dia seja dominado pela preocupação, medo ou limitações.</p>
+            
+            <a href="https://pay.hotmart.com/seu-produto" class="cta-button">Quero Transformar Minha Vida Agora!</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Método Mente Calma - Todos os direitos reservados</p>
+            
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const hours = 23 - now.getHours();
+            const minutes = 59 - now.getMinutes();
+            const seconds = 59 - now.getSeconds();
+            
+            document.getElementById('countdown').innerHTML = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
